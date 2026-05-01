@@ -1,10 +1,16 @@
 import streamlit as st
-import mediapipe as mp
+from streamlit_webrtc import webrtc_streamer, VideoTransformerBase, RTCConfiguration
 import cv2
+import mediapipe as mp
+import collections
 
-# Inisialisasi
+# Konfigurasi agar kamera lancar di jaringan HP/Internet Publik
+RTC_CONFIGURATION = RTCConfiguration(
+    {"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]}
+)
+
+# Inisialisasi MediaPipe Pose
 mp_pose = mp.solutions.pose
-mp_drawing = mp.solutions.drawing_utils
 
 class PoseTransformer(VideoTransformerBase):
     def __init__(self):
