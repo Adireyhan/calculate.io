@@ -2,4 +2,5 @@ tornado>=6.2
 streamlit>=1.30.0
 streamlit-webrtc>=0.64.6
 opencv-python-headless
-mediapipe
+mediapipe==0.10.11
+numpy
